@@ -4,7 +4,7 @@ Page Login: [Demo](https://ariadnakravchuk.github.io/Practical-work/dist/login.h
 
 Page Dashboard: [Demo](https://ariadnakravchuk.github.io/Practical-work/dist/dashboard.html)
 
-Page Series:[Demo](https://ariadnakravchuk.github.io/Practical-work/dist/series.html)
+Page Series: [Demo](https://ariadnakravchuk.github.io/Practical-work/dist/series.html)
 
 Page Treatment details: [Demo](https://ariadnakravchuk.github.io/Practical-work/dist/treatment-details.html)
 
