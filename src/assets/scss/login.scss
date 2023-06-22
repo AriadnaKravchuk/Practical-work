@@ -1,0 +1,296 @@
+@import "./mixins-and-functions.scss";
+
+$loginBeforeWidth: 630;
+$loginBeforeHeight: 1000;
+$loginContainerWidth: 1200;
+$loginContainerHeight: 808;
+$loginLogoWidth: 389;
+$loginLogoHeight: 47;
+$loginRightVerticalPadding: 42;
+$loginRightHorizontalPadding: 16;
+$loginMargin: 35;
+$loginFieldGap: 12;
+$loginFormWidth: 360;
+$loginLegendFontSize: 32;
+$loginLegendMarginBottom: 57;
+$loginLabelFontSize: 20;
+$loginInputPadding: 16;
+$loginInputEmailMarginBottom: 12;
+$loginButtonFontSize: 20;
+$loginButtonPadding: 14;
+$loginButtonMarginTop: 30;
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FBFBFD;
+    padding: 15px;
+    min-height: 100vh;
+}
+
+.login {
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        @include setBlockSize($loginBeforeWidth, $loginBeforeHeight, 0);
+        position: absolute;
+        top: -11.76%;
+        left: -10.42%;
+        z-index: -1;
+        background: url("../images/blue-bg.png") no-repeat;
+        background-size: contain;
+    }
+
+    &__container {
+        overflow: hidden;
+        @include setBlockSize($loginContainerWidth, $loginContainerHeight, 0);
+        box-shadow: 0px 3px 20px rgba(15, 32, 72, 0.149);
+        background: #FFFFFF;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__left {
+        flex: 45%;
+        height: 100%;
+        background: url("../images/login-popup-image.png") no-repeat;
+        background-size: cover;
+    }
+
+    &__right {
+        flex: 55%;
+        height: 100%;
+        padding: 42px 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__right-wrapper {
+        flex: 1 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    &__logo {
+        @include setBlockSize($loginLogoWidth, $loginLogoHeight, 0);
+        background: url("../images/logo-with-text.svg") no-repeat;
+        background-size: contain;
+    }
+    
+    &__form {
+        color: #121212;
+        width: #{$loginFormWidth}px;
+    }
+
+    &__legend {
+        font-size: #{$loginLegendFontSize}px;
+        margin-bottom: #{$loginLegendMarginBottom}px;
+    }
+
+    &__field {
+        display: grid;
+        gap: #{$loginFieldGap}px;
+    }
+
+    &__label {
+        font-size: #{$loginLabelFontSize}px;
+    }
+
+    &__input {
+        width: 100%;
+        padding: #{$loginInputPadding}px;
+        border: 1px solid #EBEBF0;
+        border-radius: 6px;
+        color: #8E8E93;
+
+        &:focus {
+            border: 1px solid #3B7EFF;
+        }
+    }
+
+    &__input--email {
+        margin-bottom: #{$loginInputEmailMarginBottom}px;
+    }
+
+    &__forgot-password {
+        display: block;
+        font-weight: 500;
+        font-size: 14px;
+        color: #3B7EFF;
+        margin-top: 30px;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+
+    &__button {
+        @include black-button;
+        font-weight: 600;
+        font-size: #{$loginButtonFontSize}px;
+        width: 100%;
+        border-radius: 40px;
+        padding: #{$loginButtonPadding}px;
+        margin-top: #{$loginButtonMarginTop}px;
+    }
+
+    &__help {
+        color: #8E8E93;
+        font-size: 14px;
+        align-self: flex-end;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+@mixin login-resize(
+    $DeductionPercentage
+) {
+    .login {
+        &__right {
+            padding: #{subtractPercentage($loginRightVerticalPadding, $DeductionPercentage)}px 
+                #{subtractPercentage($loginInputPadding, $DeductionPercentage)}px;
+        }
+
+        &__right-wrapper {
+            gap: #{subtractPercentage($loginMargin, $DeductionPercentage)}px;
+        }
+
+        &__field {
+            gap: #{subtractPercentage($loginFieldGap, $DeductionPercentage)}px;
+        }
+
+        &__logo {
+            @include setBlockSize($loginLogoWidth, $loginLogoHeight, $DeductionPercentage);
+        }
+    
+        &__form {
+            width: #{subtractPercentage($loginFormWidth, $DeductionPercentage)}px;
+        }
+    
+        &__legend {
+            font-size: #{subtractPercentage($loginLegendFontSize, $DeductionPercentage)}px;
+            margin-bottom: #{subtractPercentage($loginLegendMarginBottom, $DeductionPercentage)}px;
+        }
+
+        &__label {
+            font-size: #{subtractPercentage($loginLabelFontSize, $DeductionPercentage)}px;
+        }
+
+        &__input {
+            padding: #{subtractPercentage($loginInputPadding, $DeductionPercentage)}px;
+        }
+
+        &__input--email {
+            margin-bottom: #{subtractPercentage($loginInputEmailMarginBottom, $DeductionPercentage)}px;
+        }
+    
+        &__button {
+            padding: #{subtractPercentage($loginButtonPadding, $DeductionPercentage)}px;
+            font-size: #{subtractPercentage($loginButtonFontSize, $DeductionPercentage)}px;
+            margin-top: #{subtractPercentage($loginButtonMarginTop, $DeductionPercentage)}px;
+        }
+    }
+}
+
+@media (max-width: 1600px), (max-height: 1079px) {
+    .login__container {
+        @include setBlockSize($loginContainerWidth, $loginContainerHeight, 10);
+    }
+
+    .login::before {
+        @include setBlockSize($loginBeforeWidth, $loginBeforeHeight, 10);
+    }
+
+    @include login-resize(10);
+
+    .login {
+        &__help,
+        &__forgot-password {
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 1420px), (max-height: 980px) {
+    .login__container {
+        @include setBlockSize($loginContainerWidth, $loginContainerHeight, 20);
+    }
+
+    .login::before {
+        @include setBlockSize($loginBeforeWidth, $loginBeforeHeight, 20);
+    }
+
+    @include login-resize(20);
+}
+
+@media (max-width: 1260px), (max-height: 880px) {
+    .login__container {
+        @include setBlockSize($loginContainerWidth, $loginContainerHeight, 30);
+    }
+
+    .login::before {
+        @include setBlockSize($loginBeforeWidth, $loginBeforeHeight, 30);
+    }
+
+    @include login-resize(25);
+}
+
+@media(max-width: 1100px), (max-height: 780px) {
+    .login {
+        &__container {
+            @include setBlockSize($loginContainerWidth, $loginContainerHeight, 40);
+        }
+
+        &::before {
+            @include setBlockSize($loginBeforeWidth, $loginBeforeHeight, 40);
+        }
+    }
+
+    @include login-resize(35);
+}
+
+@media(max-width: 940px), (max-height: 650px) {
+    .login::before {
+        display: none;
+    }
+}
+
+@media(max-width: 770px), (max-height: 550px) {
+    .login__left {
+        display: none;
+    }
+
+    .login__container {
+        width: 396px;
+    }
+}
+
+@media(max-width: 460px) {
+    .login,
+    .login__container {
+        width: 100%;
+    }
+}
+
+@media(max-width: 360px) {
+    .login__container {
+        height: fit-content;
+    }
+
+    .login__right-wrapper {
+        margin: 30px 0;
+    }
+}

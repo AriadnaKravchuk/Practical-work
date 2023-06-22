@@ -1,0 +1,398 @@
+@import "mixins-and-functions.scss";
+
+.container {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.stats {
+    @include stats;
+}
+
+.progress-display {
+    @include progress-display();
+}
+
+.progress-slider {
+    @include progress-slider();
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 3px;
+    margin: 4px 0;
+    background: #EBEBF0;
+
+    &__line {
+        width: 40%;
+        height: 100%;
+        background: #3B7EFF;
+
+        &::before {
+            content: "";
+            display: block;
+            position: relative;
+            top: -60%;
+            left: 99%;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #3B7EFF;
+        }
+        
+    }
+}
+
+.therapist-info {
+    @include therapist-info();
+}
+
+.treatment {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 32px 12px 24px;
+
+    &__details {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0 16px;
+        margin: 0 12px 8px;
+        border-bottom: 1px solid #EBEBF0;
+    }
+
+    &__inner {
+        display: flex;
+        gap: 20px;
+        font-weight: 500;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__info {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        font-weight: 500;
+        font-size: 32px;
+    }
+
+    &__text {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        color: #121212;
+        white-space: nowrap;
+
+        &::before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3B7EFF;
+        }
+    }
+
+    &__name {
+        font-weight: 500;
+        font-size: 20px;
+        color: #58585D;
+    }
+}
+
+.steps {
+    font-weight: 500;
+    color: #121212;
+    margin: 20px 12px 0;
+    justify-content: space-between;
+
+    &__header {
+        margin-bottom: 24px;
+    }
+
+    &__headline {
+        font-size: 24px;
+        margin-right: 19px;
+    }
+
+    &__show-completed {
+        font-size: 14px;
+        color: #58585D;
+        background: transparent;
+
+        &:hover,
+        &:focus {
+            color: #121212;
+        }
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 280px);
+        grid-gap: 16px;
+    }
+
+    &__show-more {
+        font-weight: 500;
+        font-size: 16px;
+        color: #121212;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background: #EBEBF0;
+        border-radius: 30px;
+        padding: 6px 12px;
+        margin: 30px auto 0;
+
+        &::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: #3B7EFF;
+            border-radius: 50%;
+        }
+        
+        &:hover,
+        &:focus {
+            color: #58585D;
+        }
+    }
+}
+
+.step-card {
+    width: 280px;
+    width: 100%;
+    min-height: 265px;
+    border: 1px solid #8E8E93;
+    border-radius: 8px;
+    overflow: hidden;
+    // justify-self: center;
+    // align-self: center;
+
+    &--active {
+        border: 1px solid #3B7EFF;
+    }
+
+    &__image {
+        position: relative;
+
+        &-element {
+            display: block;
+            width: 100%;
+            height: 158px;
+            object-fit:cover;
+            object-position: center;
+        }
+    }
+
+    &__caption {
+        background: #EBEBF0;
+        border-radius: 30px;
+        padding: 6px 12px;
+        width: fit-content;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        position: absolute;
+        bottom: 12px;
+        right: 10px;
+
+        &::before  {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: #3B7EFF;
+            border-radius: 50%;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 12px;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    &__name {
+        background: #EBEBF0;
+        border-radius: 30px;
+        padding: 6px 12px;
+        width: fit-content;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        &::before  {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: #3B7EFF;
+            border-radius: 50%;
+        }
+    }
+
+    &__link {
+        margin-top: 6px;
+        background: #3B7EFF;
+        border-radius: 30px;
+        padding: 4px 14px;
+        font-size: 14px;
+        color: #FFFFFF;
+        width: fit-content;
+        transition: background 0.1s ease;
+
+        &:hover,
+        &:focus {
+            background: #2b64ce;
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .progress-display {
+        gap: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__link {
+            min-width: unset;
+            @include black-button-resize(29);
+        }
+    }
+
+    .treatment__inner {
+        min-width: 50%;
+        flex: 1;
+    }
+
+    .treatment__details {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .progress-display__row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .progress-display__image-element {
+        width: 100%;
+        aspect-ratio: 21/8;
+        object-fit: cover;
+        object-position: 50% 15%;
+    }
+
+    .progress-display__link {
+        @include black-button-resize(5);
+    }
+
+    .treatment__info {
+        flex-wrap: wrap;
+    }
+
+    .progress-display__row {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    @include stats-resize(5);
+
+    .progress-display__info {
+        flex-wrap: wrap;
+    }
+
+    .progress-display__link {
+        @include black-button-resize(15);
+    }
+
+    .treatment__info {
+        font-size: 28px;
+    }
+
+    .treatment__text::before {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .progress-display__image-element {
+        aspect-ratio: 4/2;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .progress-display {
+        padding: 8px;
+    }
+
+    .progress-display__link {
+        @include black-button-resize(20);
+    }
+
+    @include stats-resize(10);
+
+    .stats {
+        flex-wrap: wrap;
+    }
+
+    .progress-slider__item {
+        font-size: 16px;
+        margin: 12px 0;
+    }
+
+    .progress-slider__button {
+        height: 20px;
+    }
+
+    .progress-slider__button .material-symbols-outlined {
+        font-size: 20px;
+    }
+
+    .progress-display__title {
+        font-size: 20px;
+    }
+
+    .treatment {
+        padding: 28px 10px 20px;
+    }
+
+    .therapist-info {
+        flex-wrap: wrap;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .steps__cards {
+        grid-template-columns: repeat(auto-fit, 100%);
+    }
+    
+    .progress-display__link {
+        @include black-button-resize(25);
+    }
+
+    .treatment__details {
+        padding: 0 0 8px;
+        margin: 0 8px 8px;
+    }
+
+    .steps {
+        margin: 15px 8px 0;
+    }
+
+    @include stats-resize(30);
+}
+

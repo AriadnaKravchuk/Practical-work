@@ -1,0 +1,13 @@
+import "./assets/scss/reset.scss";
+import "./assets/scss/main.scss";
+import "./assets/scss/login.scss";
+import "./assets/scss/dashboard.scss";
+import "./assets/scss/fill-questioner.scss";
+import "./assets/scss/video-display.scss";
+import "./assets/scss/series.scss";
+import "./assets/scss/treatment-details.scss";
+import "./js/hamburger-menu.js";
+import "./js/progress-slider.js";
+import "./js/search.js";
+import "./js/video-player.js";
+import "./js/sidebar-current-tab.js";
