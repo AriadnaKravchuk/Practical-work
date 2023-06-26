@@ -185,7 +185,7 @@ $buttonFontSize: 20;
         white-space: nowrap;
         font-weight: 500;
         border-radius: 30px;
-        padding: 6px 7px;
+        padding: 6px 9px;
         background: #EBEBF0;
         transition: color 0.1s ease;
 
@@ -232,7 +232,6 @@ $buttonFontSize: 20;
 }
 
 @mixin video-player() {
-    // margin-bottom: 24px;
     position: relative;
     aspect-ratio: 16/4.61;
     max-width: 100%;
@@ -262,6 +261,7 @@ $buttonFontSize: 20;
         bottom: 0; 
         right: 0;
         background: transparent;
+        transition: color 0.1s ease-in;
 
         .material-symbols-outlined {
             font-size: 116px;
@@ -272,13 +272,13 @@ $buttonFontSize: 20;
         }
 
         &:hover {
-            color: #58585D;
+            color: #707070;
         }
     }
 
     &__caption {
         position: absolute;
-        padding: 6px 7px;
+        padding: 6px 9px;
         background: #EBEBF0;
         border-radius: 30px;
         font-weight: 500;
@@ -311,7 +311,6 @@ $buttonFontSize: 20;
     background: #FFFFFF;
     border: 1px solid #EBEBF0;
     border-radius: 8px;
-    // margin: 19px 0 5px;
 
     &__button {
         color: #8E8E93;

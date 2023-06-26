@@ -44,7 +44,7 @@
     &__therapist {
         display: flex;
         gap: 24px;
-        flex: 35%;
+        // flex: 35%;
         white-space: nowrap;
     }
 
@@ -95,6 +95,7 @@
     &__series-group {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
     }
 
     &__active-series {
@@ -290,14 +291,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .info-section {
-        flex-direction: column;
-
-        &__series {
-            width: unset;
-        }
-    }
-
     .therapist-info {
         flex-wrap: wrap;
     }
