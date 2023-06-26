@@ -7,14 +7,20 @@
     "build": "webpack",
     "dev-start": "webpack-dev-server"
   },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 9"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "postcss-loader": "^7.3.3",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
     "webpack": "^5.87.0",
